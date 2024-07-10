@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          xcodebuild -scheme EPCollaboratif -resultBundlePath TestResults test
+          xcodebuild -scheme EPCollaboratif -project EPCollaboratif.xcodeproj -resultBundlePath TestResults test -destination 'platform=iOS Simulator,name=iPhone 14' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
       - name: Process Test Results
         - uses: kishikawakatsumi/xcresulttool@v1
