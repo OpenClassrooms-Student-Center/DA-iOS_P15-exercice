@@ -26,11 +26,15 @@ jobs:
           build-settings: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO'
           output-directory: './build'
 
+      - name: Run Tests
+        run: |
+          xcodebuild -scheme EPCollaboratif -resultBundlePath TestResults test
+
       - name: Process Test Results
-        uses: kishikawakatsumi/xcresulttool@v1
+        - uses: kishikawakatsumi/xcresulttool@v1
         with:
-          xcresult-path: './build/Test.xcresult'
-          output: 'test-results'
+          path: TestResults.xcresult
+        if: success() || failure()
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
