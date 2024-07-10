@@ -1,0 +1,38 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+
+    - name: Set up fastlane
+      run: |
+        gem install fastlane
+
+    - name: Install dependencies
+      run: |
+        bundle install
+        xcodebuild -version
+
+    - name: Build
+      run: |
+        xcodebuild -scheme EPCollaboratif -project EPCollaboratif.xcodeproj -configuration Debug clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
+    - name: Tests
+      run: |
+        xcodebuild -scheme EPCollaboratif -project EPCollaboratif.xcodeproj -configuration Debug test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
