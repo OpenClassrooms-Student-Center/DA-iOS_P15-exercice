@@ -27,7 +27,7 @@ jobs:
           output-directory: 'TestResults'
 
       - name: Process Test Results
-        - uses: kishikawakatsumi/xcresulttool@v1
+        uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
         if: success() || failure()
