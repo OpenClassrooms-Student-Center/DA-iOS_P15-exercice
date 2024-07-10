@@ -24,7 +24,7 @@ jobs:
           destination: 'platform=iOS Simulator,name=iPhone 14'
           action: test
           build-settings: 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO'
-          output-directory: 'TestResults'
+          result-bundle-path: 'TestResults/TestResults.xcresult'
 
       - name: List TestResults Directory
         run: ls -la TestResults
