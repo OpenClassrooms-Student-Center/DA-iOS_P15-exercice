@@ -1,29 +1,16 @@
-## Various settings
-.DS_STORE
+### Xcode ###
+## User settings
 xcuserdata/
-*.pbxuser
 
-## Build generated
-DerivedData/
-
-## Other
-*.moved-aside
-*.xccheckout
+## Xcode 8 and earlier
 *.xcscmblueprint
-Projects/.module-interfaces/
+*.xccheckout
 
-## Obj-C/Swift specific
-*.hmap
-*.ipa
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
 
-# Swift Package Manager
-#
-.build/
-.swiftpm
-
-## Config
-*.xcconfig
-
-## Dev tool
-*.dev-version
-*.swift-version
