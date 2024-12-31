@@ -9,23 +9,29 @@ jobs:
   build-and-test:
     runs-on: macos-latest
 
-  steps:
-    # Vérifier le code source
-   - name: Checkout repository
+    steps:
+      # Vérifier le code source
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-    # Charger la version d'Xcode (ajouté si nécessaire)
-  - name: Build and Test
-                uses: sersoft-gmbh/xcodebuild-action@v3.2.0
-            with:
-               project: EPCollaboratif.xcodeproj
-               scheme: EPCollaboratif
-               destination: 'platform=iOS Simulator,name=iPhone 14'
-               action: test
-               result-bundle-path: 'TestResults/TestResults.xcresult'
+      # Charger la version d'Xcode
+      - name: Load Xcode version
+        uses: AckeeCZ/load-xcode-version@1.0.1
+        with:
+          version: '14.0'  # Remplacez par la version d'Xcode que vous souhaitez utiliser
 
-    # Traiter les résultats des tests
-  - name: Process Test Results
+      # Build et Test avec Xcode
+      - name: Build and Test
+        uses: sersoft-gmbh/xcodebuild-action@v3.2.0
+        with:
+          project: EPCollaboratif.xcodeproj
+          scheme: EPCollaboratif
+          destination: 'platform=iOS Simulator,name=iPhone 14'
+          action: test
+          result-bundle-path: 'TestResults/TestResults.xcresult'
+
+      # Traiter les résultats des tests
+      - name: Process Test Results
         uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults/TestResults.xcresult
