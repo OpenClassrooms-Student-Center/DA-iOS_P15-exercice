@@ -81,9 +81,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23F70CE52D248AB300FCD85F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		23F70CE62D248AB900FCD85F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2F592E7F2BF4A63800908B81 /* EPCollaboratif */ = {
 			isa = PBXGroup;
 			children = (
+				23F70CE62D248AB900FCD85F /* View */,
+				23F70CE52D248AB300FCD85F /* ViewModel */,
 				2F592E8A2BF4A63800908B81 /* Preview Content */,
 				2F592E932BF4A63800908B81 /* Model */,
 				2F592E8C2BF4A63800908B81 /* Project */,
